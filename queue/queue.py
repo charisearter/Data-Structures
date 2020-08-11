@@ -15,35 +15,26 @@ Stretch: What if you could only use instances of your Stack class to implement t
 """
 
 
+class Node:  # initial node has no data and no next
+    def __init__(self, data=None):  # constructor takes 2 elements
+        self.data = data  # default is none and this is where data is stored
+        self.next = None  # default next is = to none
+
+    def __str__(self):
+        return f'Node data: {0.data} Next Node: {0.next}'
+
+
 class Queue:
     def __init__(self):
+        self.head = head
+        self.tail = tail
         self.size = 0
-        self.storage = []
-        self.head = None
-        self.tail = None
-
+        
     def __len__(self):
-        return len(self.storage)
-
-    def enqueue(self, value):
-        node = Node(value)
-
-        if self.size = 0:
-            self.head = node
-            self.tail = node
-            self.size += 1
-            self.storage.append(node)
-            return
-        last = self.last
-        last.next = node
-        self.last = node
-        self.length += 1
-
-    def dequeue(self):
-        if self.size == 0:
-            return None
-        value = self.head.valueself.head = self.head.next
-        self.size -= 1
-        if self.storage == 0:
-            self.last = None
-            return data
+        pass
+    
+    def enquegue(self,value):
+        pass
+    
+    def dequeque(self):
+        pass
