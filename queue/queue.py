@@ -28,21 +28,21 @@ class Queue:
     def __init__(self):
         self.head = None
         self.tail = None
-        self.size = 0
+        self.storage = []
 
     def __len__(self):
-        pass
+        return len(self.storage)
 
     def enqueue(self, value):
         node = Node(value)  # new node from value passed in
-        if self.size == 0:  # if there is a nothing in the queue
+        if self.head == None:  # if there is a nothing in the queue
             self.head = node  # head equals the new node (end of line)
             # tail equals new node (starting point head and tail are same)
             self.tail = node
         else:
             self.tail.next = node  # move to next , will be new node
             self.tail = node  # new node is the tail
-        return self.size + 1
+        return self.storage.append(node)
 
     def dequeue(self):
         if self.head == None:  # head is None
@@ -51,5 +51,5 @@ class Queue:
         if self.head == self.tail:  # if head and tail are the same
             self.tail = None  # tail is none
         self.head = self.head.next  # updated to be next item
-        self.size -= 1  # decrement by 1
+        self.storage.pop()  # decrement by 1
         return temp.value  # return temp node value

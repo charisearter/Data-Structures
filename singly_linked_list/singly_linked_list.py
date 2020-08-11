@@ -6,7 +6,7 @@ class Node:  # initial node has no data and no next
         self.next = None  # default next is = to none
 
 
-class Linked_List:  # data structure that wraps over node subclass
+class LinkedList:  # data structure that wraps over node subclass
     def __init__(self):
         self.head = Node()  # placeholder that points to the first element in the list (the head)
         self.tail = None  # no tail in the beginning
@@ -20,7 +20,7 @@ class Linked_List:  # data structure that wraps over node subclass
             # when at the end, set current to new node (add new node)
             current.next = new_node
 
-    def length(self):  # givve the length of the list
+    def length(self):  # give the length of the list
         current = self.head  # variable for current node
         total = 0  # variable to hold the amount of nodes starting at 0
         while current.next != None:  # each node that next does not = none
@@ -36,4 +36,3 @@ class Linked_List:  # data structure that wraps over node subclass
             # add each node to the list until current node next == None
             elems.append(current_node.data)
         print(elems)  # print all elements in the list
-
