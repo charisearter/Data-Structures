@@ -2,7 +2,7 @@
 
 Topics:
  * Singly Linked Lists
- * Queues and Stacks
+ * [x]Queues and Stacks
  * Doubly Linked Lists
  * Binary Search Trees
  * Related Code Challenge Problems

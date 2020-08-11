@@ -1,38 +1,64 @@
 
 
 class Node:  # initial node has no data and no next
-    def __init__(self, data=None):  # constructor takes 2 elements
-        self.data = data  # default is noe and this is where data is stored
-        self.next = None  # default next is = to none
+    def __init__(self, value, next_node=None):  # constructor takes 2 elements
+        self.value = value  # default is noe and this is where data is stored
+        self.next_node = next_node  # default next is = to none
+
+    def get_next(self):  # return next node
+        return self.next_node
+
+    def get_value(self):  # return value of node
+        return self.value
+
+    def set_next(self, new_next):  # set next node
+        self.next_node = new_next
 
 
-class LinkedList:  # data structure that wraps over node subclass
+class LinkedList:
     def __init__(self):
-        self.head = Node()  # placeholder that points to the first element in the list (the head)
-        self.tail = None  # no tail in the beginning
+        self.head = None
+        self.tail = None
 
-    def append(self, data):  # add to the end of the list
-        # pass in data point for new_node with Node class
-        new_node = Node(data)
-        current = self.head  # variable for current node
-        while current.next != None:  # while current next does not = none
-            current = current.next  # go to next in list
-            # when at the end, set current to new node (add new node)
-            current.next = new_node
+    def add_to_tail(self, value):
+        new_node = Node(value)
+        if self.head == None:
+            self.head = new_node
+            self.tail = new_node
+        else:
+            self.tail.set_next(new_node)
+            self.tail = new_node
 
-    def length(self):  # give the length of the list
-        current = self.head  # variable for current node
-        total = 0  # variable to hold the amount of nodes starting at 0
-        while current.next != None:  # each node that next does not = none
-            total += 1  # add +1
-            current = current.next  # go down line until current.next = None
-        return total  # return the total
+    def remove_tail(self):
+        if self.head == None:
+            return None
 
-    def display(self):  # displays the lists so I can check it
-        elems = []  # empty list variable for elements
-        current_node = self.head  # variable for current head node
-        while current_node.next != None:  # while current node next doesn't = none
-            current_node = current_node.next  # do down the list
-            # add each node to the list until current node next == None
-            elems.append(current_node.data)
-        print(elems)  # print all elements in the list
+        if self.head == self.tail:
+            val = self.head.get_value()
+            self.head = None
+            self.tail = None
+            return val
+
+        else:
+            val = self.tail.get_value()
+            current = self.head
+            while current.get_next() != self.tail:
+                current = current.get_next()
+            self.tail = current
+            self.tail.set_next(None)
+            return val
+
+    def remove_head(self):
+        if self.head is None:
+            return None
+
+        if self.head is self.tail:
+            val = self.head.get_value()
+            self.head = None
+            self.tail = None
+            return val
+
+        else:
+            val = self.head.get_value()
+            self.head = self.head.get_next()
+            return val
