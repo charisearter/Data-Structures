@@ -52,7 +52,7 @@ Stretch: What if you could only use instances of your Stack class to implement t
 #         return temp.value  # return temp node value
 
 # Singly linked list
-
+print('Answer: ', 111 % 7 )
 
 class Node:  # initial node has no data and no next
     def __init__(self, value, next_node=None):  # constructor takes 2 elements
