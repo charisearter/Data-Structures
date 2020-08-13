@@ -11,18 +11,18 @@ This part of the project comprises two days:
 """
 
 
-class BST:
+class BST:  # Binary Search Tree (BST because I ain't typing all that)
     def __init__(self):
         self.root = None
 
-    def insert(self, value):
+    def insert(self, value):  # insert node
         if self.root:
             return self.root.insert(value)
         else:
             self.root = BSTNode(value)
             return True
 
-    def contains(self, target):
+    def contains(self, target):  # find node
         if self.root:
             return self.root.contains(target)
         else:
@@ -78,22 +78,20 @@ class BSTNode:
 
     # Return the maximum value found in the tree
 
-    def get_max(self):
-        current = self
-        while current.right != None:
+    def get_max(self):  # largest number / largest number is always on the right
+        current = self  # self is the node  (self.value would be wrong)
+        while current.right != None:  # if has right node go there
             current = current.right
-        return current.value
-        # keep moving to right until end of tree
-        # check to see if node is on right, if true go to that node until it is the end
+        return current.value  # return the final right nodes value
 
     # Call the function `fn` on the value of each node
     # This method doesn't return anything
 
-    def for_each(self, fn):  # call function on each node
-        fn(self.value)
-        if self.left:
+    def for_each(self, fn):  # call function on each node / recursion (call on itself)
+        fn(self.value)  # call function on self.value
+        if self.left:  # if left node, call this method for_each with fn argument
             self.left.for_each(fn)
-        if self.right:
+        if self.right:  # if right node, call this method for_each on with fn argument
             self.right.for_each(fn)
 
     # Part 2 -----------------------
