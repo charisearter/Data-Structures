@@ -143,7 +143,7 @@ class DoublyLinkedList:
     List and inserts it as the new tail node of the List.
     """
 
-    def move_to_end(self, node):
+    def move_to_end(self, node):  # PASSED
         # same as move to front but opposite
         if node is self.tail or self.length == 0:  # if node is the tail or list is empty
             return None  # return None
@@ -173,10 +173,10 @@ class DoublyLinkedList:
         if self.tail is node:  # if node is tail
             self.tail = node.prev  # new tail is previous node
 
-        if node.next is not None:
+        if node.next is not None:  # if node has a next
             node.next.prev = node.prev
 
-        if node.prev is not None:
+        if node.prev is not None:  # if node has a previous
             node.prev.next = node.next
 
     """
