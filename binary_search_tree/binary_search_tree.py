@@ -131,12 +131,24 @@ class BSTNode:
     # in an iterative depth first traversal (DFT)
 
     def dft_print(self):
-        pass
+        v = []  # stores node values visited
+        current = self  # variable for node starting at root
+        v.append(current.value)
+        if current is None:
+            return 'Nothing is here'
+        if self.left:
+            current = current.left.value
+            v.append(current)
+        if self.right:
+            current = current.right.value
+            v.append(current)
+        return v
 
     # Stretch Goals -------------------------
     # Note: Research may be required
 
     # Print Pre-order recursive DFT (specific type of DFT)
+
     def pre_order_print(self):
         pass
 
