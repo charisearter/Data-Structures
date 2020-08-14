@@ -133,16 +133,16 @@ class BSTNode:
     def dft_print(self):
         v = []  # stores node values visited
         current = self  # variable for node starting at root
-        v.append(current.value)
-        if current is None:
+        v.append(current.value)  # add current node
+        if current is None:  # if current is None
             return 'Nothing is here'
-        if self.left:
-            current = current.left.value
-            v.append(current)
-        if self.right:
-            current = current.right.value
-            v.append(current)
-        return v
+        if self.left:  # if there is a left go left
+            current = current.left.value  # new left node is current
+            v.append(current)  # add to visited list v
+        if self.right:  # if there is right go right
+            current = current.right.value  # current is new right
+            v.append(current)  # add current to visited list v
+        return v  # return v
 
     # Stretch Goals -------------------------
     # Note: Research may be required
